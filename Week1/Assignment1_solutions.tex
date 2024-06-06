@@ -6,6 +6,8 @@
 \usepackage{hyperref} % For hyperlinks
 \usepackage{listings} % For including code snippets
 \usepackage{amssymb}
+%for adjusting margins
+\usepackage[margin=1in]{geometry}
 \usepackage{mathtools}
 
 \DeclarePairedDelimiter\bra{\langle}{\rvert}
@@ -36,8 +38,15 @@ $\sum_{k} \braket{a}{k} \braket{k}{b} = \sum_{k} a_k^* b_k = \braket{a}{b}$\\\\
 Hence, if $\{\ket{k}\} $ is a basis, then $\braket{a}{b} = \sum_{k} \braket{a}{k} \braket{k}{b}$ is a necessary condition.\\\\
 
 \noindent
-If $\braket{a}{b} = \sum_{k} \braket{a}{k} \braket{k}{b}$\\
+If $\braket{a}{b} = \sum_{k} \braket{a}{k} \braket{k}{b}$\\\\
+\[ \bra{a}\mid I \ket{b} =  \sum_{k} \braket{a}{k} \braket{k}{b}\]
 
+\[ \bra{a} \left(\sum_k \ket{k}\bra{k}  - I\right)\ket{b} = 0  \quad \forall a,b\]
+
+\[ \therefore \sum_k \ket{k}\bra{k}  = I\]
+\noindent
+Since {$\ket{k}$} satsifies the completeness relation, it forms an orthonormal basis.\\
+Hence $\braket{a}{b} = \sum_{k} \braket{a}{k} \braket{k}{b}$ is a sufficient condition for {$\ket{k}$} to be a basis. \\
 
 
 \subsection{Question 2}
