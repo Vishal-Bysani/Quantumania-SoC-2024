@@ -1,0 +1,138 @@
+\documentclass{article}
+
+% Include necessary libraries
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{graphicx} % For including images
+\usepackage{hyperref} % For hyperlinks
+\usepackage{listings} % For including code snippets
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+
+
+% Set the title, author and date of the document
+\title{Assignment 1 Solutions}
+\author{Vishal Bysani}
+\date{June 2024}
+
+\begin{document}
+\maketitle
+\section{Linear Algebra}
+\subsection{Question 1}
+Given:  Set of vectors $\{\ket{k}\} $ are orthonormal.\\
+
+\noindent
+If $\{\ket{k}\} $ is a basis, then any vector $\ket{v}$ can be written as a linear combination of the basis vectors.\\
+
+$\therefore$ $\ket{a} = \sum_{k} a_k \ket{k}  \quad \ket{b} = \sum_{k} b_k \ket{k}$\\
+
+\noindent
+$\sum_{k} \braket{a}{k} \braket{k}{b} = \sum_{k} a_k^* b_k = \braket{a}{b}$\\\\
+\noindent
+Hence, if $\{\ket{k}\} $ is a basis, then $\braket{a}{b} = \sum_{k} \braket{a}{k} \braket{k}{b}$ is a necessary condition.\\\\
+
+\noindent
+If $\braket{a}{b} = \sum_{k} \braket{a}{k} \braket{k}{b}$\\
+
+
+
+\subsection{Question 2}
+Suppose the spectral decomposition of $A$ is given by $A = \sum_{i} \lambda_i \ket{i}\bra{i}$ and $B = \sum_{i} \mu_i \ket{i}\bra{i}$\\
+
+\noindent
+Since $B= e^A$, we have $B = \sum_{i} e^{\lambda_i} \ket{i}\bra{i}$, and hence $\mu_i = e^{\lambda_i}$\\
+
+\noindent
+We can have infinitely many matrices $A$ with spectral decomposition $\sum_{i} (\lambda_i + i2n\pi) \ket{i}\bra{i}  \quad \forall i \in \mathbb{Z}  $, such that $e^A = \sum_i e^{\lambda_i+ i2n\pi} \ket{i}\bra{i} = \sum_i e^{\lambda_i} \ket{i}\bra{i} = \sum_i \mu_i \ket{i}\bra{i} = B$\\
+
+
+\noindent
+Hence log is a non-unique function because for a given $B$ there are infinitely many $A$ such that $B = e^A$. 
+\subsection{Question 3}
+
+Suppose $A$ and $B$ are operators with diagonal representation $A = \sum_{i} \lambda_i \ket{v_i}\bra{v_i}$ and $B = \sum_{i} \mu_i \ket{w_i}\bra{w_i}$\\
+
+\noindent
+Consider the tensor product $A \otimes B$\\
+
+$(A \otimes B)(\ket{v_i} \otimes \ket{w_j}) = A\ket{v_i} \otimes B\ket{w_j} = \lambda_i \ket{v_i} \otimes \mu_j \ket{w_j} = \lambda_i \mu_j \ket{v_i} \otimes \ket{w_j}$\\ 
+
+\noindent
+Hence, the diagonal representation of $A \otimes B$ is $A \otimes B = \sum_{i,j} \lambda_i \mu_j \ket{v_i}\ket{w_j}\bra{v_i}\bra{w_j}$, that is the eigen values of $A \otimes B$ are $\lambda_i \mu_j$ and the corresponding eigenvectors are $\ket{v_i}\ket{w_j}$\\
+
+\noindent
+(i) $M = \begin{pmatrix}
+    0 & 2 & 0 & 3\\
+    2 & 0 & 3 & 0\\
+    0 & 1 & 0 & 4\\
+    1 & 0 & 4 & 0
+\end{pmatrix}
+ =    \begin{pmatrix}2 & 3\\ 1 & 4 \end{pmatrix} \otimes \begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix}$\\\\
+
+\noindent
+Eigen values of $\begin{pmatrix}2 & 3\\ 1 & 4 \end{pmatrix}$ are $5,1$ \\
+Eigen values of $\begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix}$ are $1,-1$\\
+
+\noindent
+$\therefore$ Eigen values of $M$ are $5,1,-1,-5$\\
+
+\noindent
+(ii) $M = \begin{pmatrix}
+    0 & 0 & 2 & 3\\
+    0 & 0 & 1 & 4\\
+    2 & 3 & 0 & 0\\
+    1 & 4 & 0 & 0
+\end{pmatrix} = \begin{pmatrix} 0 & 1\\ 1 & 0 \end{pmatrix} \otimes \begin{pmatrix} 2 & 3\\ 1 & 4 \end{pmatrix}$\\\\
+
+\noindent
+$\therefore$ Eigen values of $M$ are $5,1,-1,-5$\\
+
+\noindent
+(iii) $M = \begin{pmatrix}
+    4 & 6 & 6 & 9\\
+    2 & 8 & 3 & 12\\
+    2 & 3 & 8 & 12\\
+    1 & 4 & 4 & 16
+\end{pmatrix} = \begin{pmatrix} 2 & 3\\ 1 & 4 \end{pmatrix} \otimes \begin{pmatrix} 2 & 3\\ 1 & 4 \end{pmatrix}$\\\\
+
+\noindent
+$\therefore$ Eigen values of $M$ are $1,5,5,25$\\
+
+\section{Quantum Mechanics}
+\subsection{Question 1}
+
+$\ket{\psi} = \dfrac{\ket{0}-\ket{1}}{\sqrt{2}}$\\
+
+\noindent
+Unitary transformation $H = \dfrac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1\\ 1 & -1 \end{bmatrix}$ is the Hadamard operator.\\\\\\
+\noindent
+$H = \dfrac{\ket{0}\bra{0}+ \ket{0}\bra{1}+\ket{1}\bra{0} - \ket{1}\bra{1}}{\sqrt{2}} $\\\\
+
+\noindent
+\[H\ket{\psi} = \left(\dfrac{\ket{0}\bra{0}+ \ket{0}\bra{1}+\ket{1}\bra{0} - \ket{1}\bra{1}}{\sqrt{2}}\right) \left(\dfrac{\ket{0}-\ket{1}}{\sqrt{2}}\right) \]
+\[= \dfrac{\ket{0}+\ket{1}-\ket{0}+\ket{1}}{2} = \ket{1}\] \\
+
+\noindent
+$\therefore  \ket{\psi^{\prime}} = \ket{1}$
+
+\subsection{Question 2}
+Measurement of a qubit in computational basis is defined by the measurement operators $M_0 = \ket{0}\bra{0}$ and $M_1 =\ket{1}\bra{1}$\\
+
+\noindent
+On measuring $\ket{\psi} = \dfrac{\ket{0}-\ket{1}}{\sqrt{2}}$ in the computational basis, the probability of obtaining outcome 0 is $p(0)= |\braket{0}{\psi}|^2 = \dfrac{1}{2}$ and 1 is $p(1)= |\braket{1}{\psi}|^2 = \dfrac{1}{2}$\\
+
+\noindent
+The state after measurement in both cases is:\\
+\[ \dfrac{M_0 \ket{\psi}}{\sqrt{p(0)}} = \ket{0}\] and \[ \dfrac{M_1 \ket{\psi}}{\sqrt{p(1)}} = -\ket{1}\]
+
+\noindent
+On measuring $\ket{\psi^{\prime}} = \ket{1}$ in the computational basis, the probability of obtaining outcome 0 is $p(0)= |\braket{0}{\psi^{\prime}}|^2 = 0$ and 1 is $p(1)= |\braket{1}{\psi^{\prime}}|^2 = 1$\\
+
+\noindent
+The state after measurement is  \[ \dfrac{M_1 \ket{\psi^{\prime}}}{\sqrt{p(1)}} = \ket{1}\]
+
+\end{document}
