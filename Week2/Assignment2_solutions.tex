@@ -1,0 +1,50 @@
+\documentclass{article}
+
+% Include necessary libraries
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{graphicx} % For including images
+\usepackage{hyperref} % For hyperlinks
+\usepackage{listings} % For including code snippets
+\usepackage{amssymb}
+\usepackage{qcircuit}
+%for adjusting margins
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+
+
+% Set the title, author and date of the document
+\title{Assignment 2 Solutions}
+\author{Vishal Bysani}
+\date{June 2024}
+
+\begin{document}
+\maketitle
+\section{Quantum Gates}
+\subsection{Question 1}
+The Toffoli gate can be implemented using Hadamard, CNOT, $\pi$/8 and phase gates in  the following manner:
+\[
+\Qcircuit @C=1em @R=1em {
+    & \qw  & \qw & \qw&\ctrl{2} & \qw & \qw & \qw &\ctrl{2} & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{T}\\
+    & \qw  & \ctrl{1} & \qw & \qw &  \qw & \ctrl{1} & \qw & \qw&\gate{T^\dagger} & \targ & \gate{T^\dagger} & \targ & \gate{S}\\
+    &  \gate{H} & \targ & \gate{T^\dagger} & \targ & \gate{T} & \targ & \gate{T^\dagger} & \targ & \gate{T} & \gate{H} & \qw & \qw\\
+}
+\]
+
+\subsection{Question 2}
+The Fredkin gate can be implemented using three Toffoli gates in the following manner:
+\[
+\Qcircuit @C=1em @R=1em {
+    & \ctrl{1} & \ctrl{1} &  \ctrl{1} & \qw \\
+    & \ctrl{1}    & \targ   & \ctrl{1} & \qw \\
+    & \targ    & \ctrl{-1}    & \targ    & \qw
+}
+\]
+
+\subsection{Question 3}
+
+\end{document}
