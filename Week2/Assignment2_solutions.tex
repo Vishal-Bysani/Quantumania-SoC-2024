@@ -7,6 +7,8 @@
 \usepackage{listings} % For including code snippets
 \usepackage{amssymb}
 \usepackage{qcircuit}
+\usepackage{tikz}
+% \usepackage{quantikz}
 %for adjusting margins
 \usepackage[margin=1in]{geometry}
 \usepackage{mathtools}
@@ -46,5 +48,24 @@ The Fredkin gate can be implemented using three Toffoli gates in the following m
 \]
 
 \subsection{Question 3}
+The Fredkin gate can be implemented using least number of Toffoli and $\pi/8$ gates in the following manner:
+\[
+\Qcircuit @C=1em @R=1em {
+    &\qw&\ctrl{1}&\qw&\qw\\
+    &\ctrl{1}&\targ{}&\ctrl{1}&\qw\\
+    &\targ{}&\ctrl{-1}&\targ{}&\qw
+    }
+    \]
 
+    If the first qubit is $0$, then the Toffoli just performs the identity, hence the CNOTs cancel leading to an overall
+    identity. If the first qubit is $1$, then the Toffoli performs a CNOT on the last 2 qubits, which overall performs the
+    SWAP operation.\\
+
+Further, by taking $V = \frac{(1-i)(1+iX)}{2}$ which gives $V^2 = X$ , we can replace the Toffoli with:\\
+\[
+\Qcircuit @C=1em @R=1em {
+    &\qw&\qw&\ctrl{1}&\qw&\ctrl{1}&\ctrl{2}&\qw&\qw\\
+    &\ctrl{1}&\ctrl{1}&\targ{}&\ctrl{1}&\targ{}&\qw&\ctrl{1}&\qw\\
+    &\targ&\gate{V}&\qw&\gate{V^\dagger}&\qw&\gate{V}&\targ&\qw
+}\]
 \end{document}
