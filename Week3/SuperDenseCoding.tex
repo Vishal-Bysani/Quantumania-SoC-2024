@@ -1,0 +1,41 @@
+\documentclass{article}
+
+% Include necessary libraries
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{graphicx} % For including images
+\usepackage{hyperref} % For hyperlinks
+\usepackage{listings} % For including code snippets
+\usepackage{amssymb}
+\usepackage{qcircuit}
+\usepackage{tikz}
+% \usepackage{quantikz}
+%for adjusting margins
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+
+
+% Set the title, author and date of the document
+\title{Superdense Coding  Solutions}
+\author{Vishal Bysani}
+\date{June 2024}
+
+\begin{document}
+\maketitle
+\section{Superdense Coding}
+The task of superdense coding is to send two classical bits of information by sending only one qubit. This is done by using entanglement and quantum gates. The protocol is as follows:
+\begin{enumerate}
+    \item Alice and Bob share an entangled pair of qubits. The state of the pair is given by: $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})$
+    \item If Alice wishes to send $00$, she does nothing to her qubit. If she wishes to send $01$, she applies the $Z$ gate to her qubit. If she wishes to send $10$, she applies the $X$ gate to her qubit. If she wishes to send $11$, she applies the $iY$ gate to her qubit.
+    \item Since the Bell states form an orthonormal basis, Bob can determine the classical bits by performing a Bell basis measurement on the two qubits.
+\end{enumerate}
+
+\section{ Limitations of Transmitting Information}
+We cannot use a single qubit to send more than two classical bits of information. The maximum number of distinct quantum states which can be created by applying operations on a single qubit is 4, and this limits the number of classical bits that can be sent using a single qubit to 2.
+
+% \section{}
+\end{document}

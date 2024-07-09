@@ -1,0 +1,39 @@
+\documentclass{article}
+
+% Include necessary libraries
+\usepackage{amsmath} % For mathematical symbols and equations
+\usepackage{graphicx} % For including images
+\usepackage{hyperref} % For hyperlinks
+\usepackage{listings} % For including code snippets
+\usepackage{amssymb}
+\usepackage{qcircuit}
+\usepackage{tikz}
+% \usepackage{quantikz}
+%for adjusting margins
+\usepackage[margin=1in]{geometry}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1\,\delimsize\vert\,\mathopen{}#2}
+
+
+
+% Set the title, author and date of the document
+\title{Quantum Teleportation Solutions}
+\author{Vishal Bysani}
+\date{June 2024}
+
+\begin{document}
+\maketitle
+\section{Quantum Teleportation}
+The task is to teleport an arbitrary qubit state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$ from Alice to Bob with the help of only classical communication and a previously shared EPR state $\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})$ (each having one qubit). The teleportation protocol consists of four main steps:
+\begin{enumerate}
+    \item Alice applies a CNOT gate on her two qubits, with $\ket{\psi}$ as the control qubit and her half of the entangled pair as the target qubit. She then applies a Hadamard gate to the control qubit.
+    \item Alice measures both qubits that she owns. She sends the measurement results to Bob.
+    \item Depending on the measurement results, Bob applies $X$ and $Z$ gates to his qubit.
+    \item The qubit in Bob's possession is now in the state $\ket{\psi}$.
+\end{enumerate}
+
+\section{Teleporting a Mixed State}
+\end{document}
